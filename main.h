@@ -37,7 +37,7 @@ struct fmt
   * @fmt: The format.
   * @fm_t: The function associated.
   */
-typedef struct fmt_t;
+typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
@@ -50,7 +50,7 @@ int print_char(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 int print_string(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
-int print_percent(va_list types, char buffer[].
+int print_percent(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 
 /* Functions to print numbers*/
@@ -82,7 +82,7 @@ int print_pointer(va_list types, char buffer[],
 int get_flags(const char *format, int *i);
 int get_width(const char *format, int *i, va_list list);
 int get_precision(const char *format, int *i, va_list list);
-int get size_size(const char *format, int *i);
+int get_size(const char *format, int *i);
 
 /* Function to spring in reverse*/
 int print_reverse(va_list types, char buffer[],
@@ -97,9 +97,9 @@ int handle_write_char(char c, char buffer[],
 		int flags, int width, int precision, int size);
 int write_number(int is_positive, int ind, char buffer[],
 		int flags, int width, int precision, int size);
-int write_num(int ind, char bff[], int flags int width, int precision,
-		int width, int flags, charpadd, char extra_c, int padd_start);
-int write_pointer(char buffer[], int int ind, int length
+int write_num(int ind, char bff[], int flags, int width, int precision,
+		int length, char padd, char extra_c);
+int write_pointer(char buffer[], int ind, int length,
 		int width, int flags, char padd, char extra_c, int padd_start);
 
 int write_unsgnd(int is_negative, int ind, char buffer[],
